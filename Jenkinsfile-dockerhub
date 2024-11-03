@@ -5,13 +5,13 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
      }
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('karo-dockerhub')
-    APP_NAME = "ooghenekaro/amazon"
+    DOCKERHUB_CREDENTIALS = credentials('henry-dockerhub')
+    APP_NAME = "huicodes/amazon"
     }
     stages { 
         stage('SCM Checkout') {
             steps{
-           git branch: 'main', url: 'https://github.com/ooghenekaro/Amazon-clone-Dockerized.git'
+           git branch: 'main', url: 'https://github.com/huicodes/Amazon-clone-Dockerized.git'
             }
         }
         // run sonarqube test
@@ -52,11 +52,6 @@ pipeline {
             } 
            } 
         }
-    post { 
-        always { 
-           //slackSend message: 'Pipeline completed - Build deployed successfully '
-           slackSend color: "good", message: "Build Deployed Successfully, Downstream Job Triggered"
-           }
-    }
+
 }
 
