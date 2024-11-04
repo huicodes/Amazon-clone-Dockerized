@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 10, unit: 'MINUTES')
      }
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('henry-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('henry-docker')
     APP_NAME = "huicodes/amazon"
     }
     stages { 
